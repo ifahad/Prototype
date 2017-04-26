@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context="com.example.prototype.OldRequest">
 
+    <ListView
+        android:id="@+id/oldRequestList"
+        android:layout_width="298dp"
+        android:layout_height="289dp"
+        android:divider="@color/colorPrimaryDark"
+
+        tools:layout_editor_absoluteY="51dp"
+        tools:layout_editor_absoluteX="43dp" />
+
+    <GridLayout
+        android:layout_width="366dp"
+        android:layout_height="142dp"
+        android:background="?attr/colorControlHighlight"
+        android:clickable="true"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="355dp">
+
+        <TextView
+            android:id="@+id/infoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course Info -"
+            android:textColor="@android:color/background_dark" />
+    </GridLayout>
+
 </android.support.constraint.ConstraintLayout>

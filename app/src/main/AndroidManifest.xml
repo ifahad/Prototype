@@ -29,25 +29,35 @@
                 android:value="com.example.prototype.MainActivity" />
             >
         </activity>
+
+
         <activity
             android:name=".NewRequest"
             android:label="Back"
-            android:parentActivityName=".AcademicAdvisorPortal"></activity>
+            android:parentActivityName=".AcademicAdvisorPortal" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.prototype.AcademicAdvisorPortal" />
-        >  />
+        > />
         <activity
             android:name=".OldRequest"
             android:label="Back"
-            android:parentActivityName=".AcademicAdvisorPortal"
+            android:parentActivityName=".AcademicAdvisorPortal" />
 
-            ></activity>
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.prototype.AcademicAdvisorPortal" />
         >
+        <activity android:name=".StudentPortal"
+            android:label="Back"
+            android:parentActivityName=".MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.prototype.MainActivity" />
+            >></activity>
     </application>
 
 </manifest>
