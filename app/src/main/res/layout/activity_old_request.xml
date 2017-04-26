@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.prototype.OldRequest">
 
-    <ListView
-        android:id="@+id/oldRequestList"
-        android:layout_width="298dp"
-        android:layout_height="289dp"
-        android:divider="@color/colorPrimaryDark"
-
-        tools:layout_editor_absoluteY="51dp"
-        tools:layout_editor_absoluteX="43dp" />
-
     <GridLayout
         android:layout_width="366dp"
         android:layout_height="142dp"
@@ -30,5 +21,14 @@
             android:text="Course Info -"
             android:textColor="@android:color/background_dark" />
     </GridLayout>
+
+    <ListView
+        android:id="@+id/oldRequestList"
+        android:layout_width="298dp"
+        android:layout_height="289dp"
+        android:divider="@color/colorPrimaryDark"
+
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="53dp" />
 
 </android.support.constraint.ConstraintLayout>
