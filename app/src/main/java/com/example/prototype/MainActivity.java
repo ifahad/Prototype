@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         final TextInputLayout usernameWrapper = (TextInputLayout) findViewById(R.id.usernameWrapper);
         final TextInputLayout passwordWrapper = (TextInputLayout) findViewById(R.id.passwordWrapper);
 
-        // To animate the floating label
+        // To animate the floating label .
         usernameWrapper.setHint("Username");
         passwordWrapper.setHint("Password");
 
