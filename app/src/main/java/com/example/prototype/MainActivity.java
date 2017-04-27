@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         // To animate the floating label
         usernameWrapper.setHint("Username");
         passwordWrapper.setHint("Password");
+
+        
     }
 
 
