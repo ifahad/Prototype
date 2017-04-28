@@ -12,7 +12,7 @@
         android:layout_weight="0.5"
         android:orientation="vertical">
 
-        <!-- Welcom  Sign -->
+        <!-- Welcom Sign -->
         <!--<TextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
