@@ -31,10 +31,7 @@
             android:layout_gravity="center_horizontal"
             android:src="@drawable/logo_256"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="36dp"
-            android:layout_marginStart="36dp" />
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 
@@ -76,29 +73,30 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Login" />
-
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.92">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/Rd_student"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Student" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/Red_aca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Acadimic Advisor" />
+
+            <Button
+                android:id="@+id/Login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Login" />
+
         </RadioGroup>
 
     </LinearLayout>
