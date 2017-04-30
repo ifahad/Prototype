@@ -2,6 +2,7 @@ package com.example.prototype;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -44,5 +45,16 @@ class ListOldRequest extends Activity {
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_old_request, oldRequest);
         ListView listView = (ListView) findViewById(R.id.oldRequestList);
         listView.setAdapter(adapter);
+    }
+
+    public class NewRequest extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_new_request);
+        }
+
+
     }
 }
