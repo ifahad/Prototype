@@ -6,13 +6,33 @@
     android:layout_height="match_parent"
     tools:context="com.example.prototype.OldRequest">
 
+    <ListView
+        android:id="@+id/oldRequestList"
+        android:layout_width="298dp"
+        android:layout_height="289dp"
+        android:divider="@color/colorPrimaryDark"
+
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout" />
+
     <GridLayout
+        android:id="@+id/gridLayout"
         android:layout_width="366dp"
         android:layout_height="142dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:background="?attr/colorControlHighlight"
         android:clickable="true"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="355dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <TextView
             android:id="@+id/infoText"
@@ -21,14 +41,5 @@
             android:text="Course Info -"
             android:textColor="@android:color/background_dark" />
     </GridLayout>
-
-    <ListView
-        android:id="@+id/oldRequestList"
-        android:layout_width="298dp"
-        android:layout_height="289dp"
-        android:divider="@color/colorPrimaryDark"
-
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="53dp" />
 
 </android.support.constraint.ConstraintLayout>
