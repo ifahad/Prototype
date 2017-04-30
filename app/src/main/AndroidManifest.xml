@@ -55,8 +55,10 @@
             ></activity>
 
 
-        <activity android:name=".StudentPortal">
-
+        <activity
+            android:name=".StudentPortal"
+            android:label="Back"
+            android:parentActivityName=".MainActivity">>
 
             <!-- Add Request -->
             <activity
