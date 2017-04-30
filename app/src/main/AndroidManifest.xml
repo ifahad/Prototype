@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
 
+
         <!-- Adding an Up Action -->
         <!-- Declare a Parent Activity -->
         <activity
@@ -49,58 +50,63 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.prototype.AcademicAdvisorPortal" />
         >
-        <activity android:name=".AcademicRequest"></activity>
+        <activity android:name=".AcademicRequest"
+
+            ></activity>
 
 
-        <!-- Add Request -->
-        <activity
-            android:name=".AddRequest"
-            android:label="Back"
-            android:parentActivityName="com.example.prototype.StudentPortal">
+        <activity android:name=".StudentPortal">
 
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.prototype.StudentPortal" />
+
+            <!-- Add Request -->
+            <activity
+                android:name=".AddRequest"
+                android:label="Back"
+                android:parentActivityName="com.example.prototype.StudentPortal">
+
+                <!-- Parent activity meta-data to support 4.0 and lower -->
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.prototype.StudentPortal" />
+            </activity>
+
+            <!-- Delete Request -->
+            <activity
+                android:name=".DeleteRequest"
+                android:label="Back"
+                android:parentActivityName="com.example.prototype.StudentPortal">
+
+                <!-- Parent activity meta-data to support 4.0 and lower -->
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.prototype.StudentPortal" />
+            </activity>
+
+
+            <!-- Withdrawal Request -->
+            <activity
+                android:name=".WithdrawalRequest"
+                android:label="Back"
+                android:parentActivityName="com.example.prototype.StudentPortal">
+
+                <!-- Parent activity meta-data to support 4.0 and lower -->
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.prototype.StudentPortal" />
+            </activity>
+
+            <!-- Check Request -->
+            <activity
+                android:name=".CheckRequest"
+                android:label="Back"
+                android:parentActivityName="com.example.prototype.StudentPortal">
+
+                <!-- Parent activity meta-data to support 4.0 and lower -->
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.prototype.StudentPortal" />
+            </activity>
         </activity>
-
-        <!-- Delete Request -->
-        <activity
-            android:name=".DeleteRequest"
-            android:label="Back"
-            android:parentActivityName="com.example.prototype.StudentPortal">
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.prototype.StudentPortal" />
-        </activity>
-
-
-        <!-- Withdrawal Request -->
-        <activity
-            android:name=".WithdrawalRequest"
-            android:label="Back"
-            android:parentActivityName="com.example.prototype.StudentPortal">
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.prototype.StudentPortal" />
-        </activity>
-
-        <!-- Check Request -->
-        <activity
-            android:name=".CheckRequest"
-            android:label="Back"
-            android:parentActivityName="com.example.prototype.StudentPortal">
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.prototype.StudentPortal" />
-        </activity>
-
 
     </application>
 
