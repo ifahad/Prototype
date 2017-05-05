@@ -101,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
                                 //go to next screen for Advisor
                                 Intent advi_intent = new Intent(getApplicationContext(), AcademicAdvisorPortal.class);
                                 startActivity(advi_intent);
-                                finish();
+
+                               finish();
                             } else {
                                 Toast.makeText(MainActivity.this,"Username Or Password is Failed",Toast.LENGTH_SHORT)
                                         .show();

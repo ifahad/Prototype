@@ -6,8 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 public class AcademicAdvisorPortal extends AppCompatActivity {
+
+
+    private long backPressedTimeB = 0;    // used by onBackPressed()
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +47,17 @@ public class AcademicAdvisorPortal extends AppCompatActivity {
     {
         Intent intent = new Intent(AcademicAdvisorPortal.this, OldRequest.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        long t = System.currentTimeMillis();
+        if (t - backPressedTimeB > 2000) {    // 2 secs
+            backPressedTimeB = t;
+            Toast.makeText(AcademicAdvisorPortal.this, "Press back again to Exit",Toast.LENGTH_SHORT).show();
+        } else {    // this guy is serious
+            // clean up
+            super.onBackPressed();       // bye
+        }
     }
 }
