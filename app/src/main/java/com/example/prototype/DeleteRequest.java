@@ -62,28 +62,29 @@ public class DeleteRequest extends Activity {
                 @Override
                 public void onClick(View v) {
 
-                    Retrofit.CreateRetrofitObj();
-
-                    final API API = Retrofit.getRetrofitObj()
-                            .create(API.class);
-
-                    Call<Message> deleteRequest = API.Add_Delete_Operation(
-                            "delete",
-                            SaveInfo.getID(),
-                            course_list.getSelectedItem().toString(),
-                            section_input.getText().toString()
-                    );
-                    deleteRequest.enqueue(new Callback<Message>() {
-                        @Override
-                        public void onResponse(Call<Message> call, Response<Message> response) {
-                            Log.d("Message",response.body().getMessage());
-
-                            if(section_input.getText().toString()!=null){
+                    if(!(section_input.getText().toString().isEmpty())) {
 
 
-                                if(response.body().getMessage().equals("done")) {
+                        Retrofit.CreateRetrofitObj();
 
-                                    Toast.makeText(DeleteRequest.this,"Request Submitted",Toast.LENGTH_SHORT)
+                        final API API = Retrofit.getRetrofitObj()
+                                .create(API.class);
+
+                        Call<Message> deleteRequest = API.Add_Delete_Operation(
+                                "delete",
+                                SaveInfo.getID(),
+                                course_list.getSelectedItem().toString(),
+                                section_input.getText().toString()
+                        );
+                        deleteRequest.enqueue(new Callback<Message>() {
+                            @Override
+                            public void onResponse(Call<Message> call, Response<Message> response) {
+                                Log.d("Message", response.body().getMessage());
+
+
+                                if (response.body().getMessage().equals("done")) {
+
+                                    Toast.makeText(DeleteRequest.this, "Request Submitted", Toast.LENGTH_SHORT)
                                             .show();
                                     Intent stud_intent = new Intent(getApplicationContext(), StudentPortal.class);
                                     startActivity(stud_intent);
@@ -91,20 +92,21 @@ public class DeleteRequest extends Activity {
 
                                 }
 
-                            } else{
-                                Toast.makeText(DeleteRequest.this,"You must Write Section Like(CA36)",Toast.LENGTH_SHORT)
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<Message> call, Throwable t) {
+                                Log.d("Message", t.getMessage());
+                                Toast.makeText(DeleteRequest.this, "Connection Failed", Toast.LENGTH_SHORT)
+                                        .show();
+
+                            }
+                        });
+                    }else{
+                                Toast.makeText(DeleteRequest.this,"You must Write Section Like: CA36 ",Toast.LENGTH_SHORT)
                                         .show();
                             }
-                        }
-
-                        @Override
-                        public void onFailure(Call<Message> call, Throwable t) {
-                            Log.d("Message",t.getMessage());
-                            Toast.makeText(DeleteRequest.this,"Connection Failed",Toast.LENGTH_SHORT)
-                                    .show();
-
-                        }
-                    });
                 }
             });
         }

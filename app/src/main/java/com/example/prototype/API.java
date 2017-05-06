@@ -59,6 +59,16 @@ public interface API {
     @POST("ListOldReqForAD.php")
     Call<List<GetOldReq4AD>> GetListOldReq(@Field("adv_id") String adv_id);
 
+    @FormUrlEncoded
+    @POST("changeRequestStatus.php")
+    Call<Message> changeStatus(@Field("numberRequest") String Number,
+                              @Field("status") String status);
+
+
+    @FormUrlEncoded
+    @POST("CheckRequestForStd.php")
+    Call<List<Message>> SendID4Std(@Field("id") String id);
+
 
 
 }

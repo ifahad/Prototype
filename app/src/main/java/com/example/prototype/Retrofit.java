@@ -10,7 +10,7 @@ public class Retrofit {
     private static retrofit2.Retrofit RetrofitObj=null;
     public static void CreateRetrofitObj(){
         retrofit2.Retrofit retrofit=new retrofit2.Retrofit.Builder()
-                .baseUrl("http://192.168.1.23:82/gproject/")
+                .baseUrl("http://192.168.8.100:82/gproject/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RetrofitObj=retrofit;
