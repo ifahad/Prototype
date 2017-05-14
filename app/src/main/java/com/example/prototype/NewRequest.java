@@ -38,6 +38,7 @@ public class NewRequest extends AppCompatActivity {
         newRqCall.enqueue(new Callback<List<GetNewRq4AD>>() {
             @Override
             public void onResponse(Call<List<GetNewRq4AD>> call, Response<List<GetNewRq4AD>> response) {
+                //write this (List<GetNewRq4AD>) becuose I receve list from server.
                 List<GetNewRq4AD> newRq4ADs=response.body();
                 for(int i=0;i<newRq4ADs.size();i++){
                     items.add(newRq4ADs.get(i));

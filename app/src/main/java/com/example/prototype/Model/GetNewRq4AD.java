@@ -8,10 +8,18 @@ public class GetNewRq4AD {
     private String Student_ID;
     private String C_code;
     private  String Operation_Type;
-    private String GPA;
+    private String Reason;
     private String Section;
     private String Number;
 
+
+    public String getReason() {
+        return Reason;
+    }
+
+    public void setReason(String reason) {
+        Reason = reason;
+    }
 
     public String getNumber() {
         return Number;
@@ -29,13 +37,13 @@ public class GetNewRq4AD {
         Section = section;
     }
 
-    public String getGPA() {
-        return GPA;
-    }
-
-    public void setGPA(String GPA) {
-        this.GPA = GPA;
-    }
+//    public String getGPA() {
+//        return GPA;
+//    }
+//
+//    public void setGPA(String GPA) {
+//        this.GPA = GPA;
+//    }
 
     public String getStudent_ID() {
         return Student_ID;

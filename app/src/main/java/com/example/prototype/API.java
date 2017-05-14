@@ -1,5 +1,6 @@
 package com.example.prototype;
 
+import com.example.prototype.Model.GetListReq4Std;
 import com.example.prototype.Model.GetNewRq4AD;
 import com.example.prototype.Model.GetOldReq4AD;
 import com.example.prototype.Model.Message;
@@ -65,10 +66,12 @@ public interface API {
                               @Field("status") String status);
 
 
+//    @FormUrlEncoded
+//    @POST("CheckRequestForStd.php")
+//    Call<List<Message>> SendID4Std(@Field("id") String id);
+
     @FormUrlEncoded
-    @POST("CheckRequestForStd.php")
-    Call<List<Message>> SendID4Std(@Field("id") String id);
-
-
+    @POST("LIstReqForStd.php")
+    Call<List<GetListReq4Std>> SendID4Std(@Field("id") String id);
 
 }

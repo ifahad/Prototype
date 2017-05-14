@@ -84,7 +84,7 @@ public class DeleteRequest extends Activity {
 
                                 if (response.body().getMessage().equals("done")) {
 
-                                    Toast.makeText(DeleteRequest.this, "Request Submitted", Toast.LENGTH_SHORT)
+                                    Toast.makeText(DeleteRequest.this, "Request Submitted", Toast.LENGTH_LONG)
                                             .show();
                                     Intent stud_intent = new Intent(getApplicationContext(), StudentPortal.class);
                                     startActivity(stud_intent);

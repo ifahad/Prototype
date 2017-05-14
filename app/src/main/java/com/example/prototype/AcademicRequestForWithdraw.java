@@ -16,36 +16,37 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AcademicRequest extends AppCompatActivity {
+public class AcademicRequestForWithdraw extends AppCompatActivity {
 
-    TextView code,id,section,title;
+    TextView code,id,section,reason;
     RadioButton Accept,Reject,Contact;
     Button okey,cancal;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_academic_request);
+        setContentView(R.layout.activity_academic_request_for_withdraw);
 
-        title= (TextView)findViewById(R.id.title4AddDelete);
-        code=(TextView) findViewById(R.id.addRequest);
-        id=(TextView) findViewById(R.id.studentID);
-        //gpa=(TextView) findViewById(R.id.gpa);
-        section=(TextView) findViewById(R.id.SectionName);
-        Accept=(RadioButton) findViewById(R.id.Accept_radioButton);
-        Reject=(RadioButton) findViewById(R.id.Reject_radioButton);
-        Contact=(RadioButton) findViewById(R.id.Contact_radioButton);
-        okey=(Button) findViewById(R.id.okayButton);
-        cancal=(Button) findViewById(R.id.cancelButton);
+
+        code=(TextView) findViewById(R.id.TypeRequest);
+        id=(TextView) findViewById(R.id.studentID4Withd);
+        section=(TextView) findViewById(R.id.SectionName4Withd);
+        reason=(TextView)findViewById(R.id.Reason4Withd);
+        Accept=(RadioButton) findViewById(R.id.Accept_radio4Withd);
+        Reject=(RadioButton) findViewById(R.id.Reject_radio4Withd);
+        Contact=(RadioButton) findViewById(R.id.Contact_radio4Withd);
+        okey=(Button) findViewById(R.id.okayBtn4Withd);
+        cancal=(Button) findViewById(R.id.cancelBtn4Withd);
 
         final Intent info=getIntent();
 
         //to receive data from another activity
-        title.setText(info.getStringExtra("opertion"));
+
         code.setText(info.getStringExtra("opertion")+" - "+info.getStringExtra("code"));
         section.setText("Section: "+info.getStringExtra("section"));
         id.setText("Student ID: "+info.getStringExtra("id"));
-       // gpa.setText("GPA : "+info.getStringExtra("gpa"));
+        reason.setText(info.getStringExtra("reason"));
 
         cancal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +69,7 @@ public class AcademicRequest extends AppCompatActivity {
                     status="Contact with Advisor";}
                 else {
                     Log.d("test","tttt");
-                    Toast.makeText(AcademicRequest.this,"Select a specific action: 'Accept,Reject,Contact' ",Toast.LENGTH_SHORT)
+                    Toast.makeText(AcademicRequestForWithdraw.this,"Select a specific action: 'Accept,Reject,Contact' ",Toast.LENGTH_SHORT)
                             .show();
                     return;}
 
@@ -81,36 +82,26 @@ public class AcademicRequest extends AppCompatActivity {
                 //for test
                 Log.d("info",status+" : "+info.getStringExtra("number"));
                 //send Number and Status to API and API send to PHP servier
-                Call<Message> changeStats=API.changeStatus(info.getStringExtra("number"),
+                Call<Message> changeStats4Withdraw=API.changeStatus(info.getStringExtra("number"),
                         status);
 
-
-                changeStats.enqueue(new Callback<Message>() {
-                            @Override
-                            public void onResponse(Call<Message> call, Response<Message> response) {
-                                Log.d("Message", response.body().getMessage());
-
-
-
-                                    finish();
+                changeStats4Withdraw.enqueue(new Callback<Message>() {
+                    @Override
+                    public void onResponse(Call<Message> call, Response<Message> response) {
+                        Log.d("Message", response.body().getMessage());
 
 
 
-                            }
-                            @Override
-                            public void onFailure(Call<Message> call, Throwable t) {
-                                Log.d("error",t.getMessage());
-                            }
-                        }
-                );
+                        finish();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Message> call, Throwable t) {
+                        Log.d("error",t.getMessage());
+                    }
+                });
 
             }
         });
-
-
-
-
-
-
     }
 }

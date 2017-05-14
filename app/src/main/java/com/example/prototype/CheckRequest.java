@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.prototype.Model.GetListReq4Std;
 import com.example.prototype.Model.Message;
 import com.example.prototype.adpter.ListReqforStdAdpter;
 
@@ -22,38 +23,41 @@ import retrofit2.Response;
 
 public class CheckRequest extends Activity {
     RecyclerView listitem;
-    ArrayList<Message> messages=new ArrayList<>();
+    ArrayList<GetListReq4Std> messages=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_request);
-        listitem= (RecyclerView) findViewById(R.id.listReqStd);
 
-        listitem.setLayoutManager(new LinearLayoutManager(this));
+       // listitem= (RecyclerView) findViewById(R.id.listReqStd);
+
+       // listitem.setLayoutManager(new LinearLayoutManager(this));
 
         Retrofit.CreateRetrofitObj();
 
         final API API=Retrofit.getRetrofitObj()
                 .create(API.class);
 
-        Call<List<Message>> changeStats=API.SendID4Std(SaveInfo.getID());
+        Call<List<GetListReq4Std>> changeStats=API.SendID4Std(SaveInfo.getID());
 
-        changeStats.enqueue(new Callback<List<Message>>() {
+        changeStats.enqueue(new Callback<List<GetListReq4Std>>() {
             @Override
-            public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
-                List<Message> items=response.body();
+            public void onResponse(Call<List<GetListReq4Std>> call, Response<List<GetListReq4Std>> response) {
+                List<GetListReq4Std> items=response.body();
                 for(int i=0;i<items.size();i++){
                     messages.add(items.get(i));
-                    Log.d("text",items.get(i).getMessage());
+                   //Log.d("text",items.get(i).getMessage());
                 }
-                ListReqforStdAdpter adpter=new ListReqforStdAdpter(messages);
+                listitem= (RecyclerView) findViewById(R.id.listReqStd);
+                listitem.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                ListReqforStdAdpter adpter=new ListReqforStdAdpter(messages,getApplicationContext());
                 listitem.setAdapter(adpter);
 
             }
 
             @Override
-            public void onFailure(Call<List<Message>> call, Throwable t) {
-                Log.d("message",t.getMessage());
+            public void onFailure(Call<List<GetListReq4Std>> call, Throwable t) {
+               // Log.d("message",t.getMessage());
 
             }
         });

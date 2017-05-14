@@ -14,15 +14,19 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:orientation="horizontal"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true">
+
     <TextView
         android:id="@+id/std_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
+        android:layout_weight="0.98"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:text="TextView"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/code_row"
@@ -31,7 +35,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="20sp" />
+
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/opertion_row"
@@ -40,6 +45,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="20sp" />
+
+        android:textSize="18sp" />
 </LinearLayout>
 </RelativeLayout>

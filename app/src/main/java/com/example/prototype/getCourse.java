@@ -17,7 +17,8 @@ import retrofit2.Response;
  */
 
 public class getCourse {
-  private static  List<String> Course;
+
+    private static  List<String> Course;
 
     public static List<String> getCourse() {
         return Course;
@@ -34,6 +35,7 @@ public class getCourse {
             getCourcseCall.enqueue(new Callback<List<code>>() {
                 @Override
                 public void onResponse(Call<List<code>> call, Response<List<code>> response) {
+                    //write this (List<code>) becuose I receve list from server.
                     List<code> courses = response.body();
 
                     for (int i = 0; i < courses.size(); i++) {

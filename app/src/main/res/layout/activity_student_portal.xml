@@ -23,39 +23,39 @@
         android:id="@+id/welcomeSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome!"
-        android:textColor="@android:color/background_light"
-        android:textSize="40sp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Welcome!"
+        android:textColor="@android:color/background_light"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView"
+        app:layout_constraintRight_toRightOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical"
         android:weightSum="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Add"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Add Course"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
@@ -65,13 +65,17 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:onClick="goToAddRequest"
-            app:srcCompat="@drawable/add_32" />
+            android:text="Add Course"
+            app:srcCompat="@drawable/add_32"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delete"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Delete Course"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
@@ -81,13 +85,16 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:onClick="goToDeleteRequest"
-            app:srcCompat="@drawable/delete_32" />
+            app:srcCompat="@drawable/delete_32"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Withdraw"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Withdraw from a Course"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
@@ -97,13 +104,16 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:onClick="goToWithdrawRequest"
-            app:srcCompat="@drawable/minus_32" />
+            app:srcCompat="@drawable/minus_32"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Request"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="View all Request"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
@@ -112,7 +122,6 @@
             android:id="@+id/checkButton"
             android:layout_width="match_parent"
             android:layout_height="85dp"
-            android:layout_weight="0.28"
             android:onClick="goToCheckRequest"
             app:srcCompat="@drawable/menu_32"
             tools:layout_editor_absoluteX="8dp"

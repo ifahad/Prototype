@@ -54,13 +54,16 @@ public class WithdrawalRequest extends Activity {
 
             myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-            course_list.setAdapter(myAdapter);
+          course_list.setAdapter(myAdapter);
 
-            course_list.setSelection(0);
+           course_list.setSelection(0);
 
             btn_submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    if(!(section_input.getText().toString().isEmpty()) && !(reason_text.getText().toString().isEmpty())) {
+
                     Retrofit.CreateRetrofitObj();
 
                     final API API = Retrofit.getRetrofitObj()
@@ -81,7 +84,7 @@ public class WithdrawalRequest extends Activity {
 
                             if(response.body().getMessage().equals("done")) {
 
-                                Toast.makeText(WithdrawalRequest.this,"Request Submitted",Toast.LENGTH_SHORT)
+                                Toast.makeText(WithdrawalRequest.this,"Request Submitted",Toast.LENGTH_LONG)
                                         .show();
                                 Intent stud_intent = new Intent(getApplicationContext(), StudentPortal.class);
                                 startActivity(stud_intent);
@@ -101,6 +104,11 @@ public class WithdrawalRequest extends Activity {
                                     .show();
                         }
                     });
+
+                    }else{
+                        Toast.makeText(WithdrawalRequest.this,"You must Write Section Like: CA36 , OR Reason field ",Toast.LENGTH_SHORT)
+                                .show();
+                    }
 
                 }
             });

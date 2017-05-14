@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.prototype.AcademicRequest;
+import com.example.prototype.AcademicRequestForWithdraw;
 import com.example.prototype.CheckRequest;
 import com.example.prototype.Model.GetNewRq4AD;
 import com.example.prototype.R;
@@ -48,18 +49,32 @@ public class newrequestAdpter extends RecyclerView.Adapter<newrequestAdpter.cust
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendInfo=new Intent(context, AcademicRequest.class);//to go another activity..
+                if(items.get(position).getOperation_Type().equals("withdraw")){
+                    Intent sendInfo=new Intent(context, AcademicRequestForWithdraw.class);//go to AcademicRequestForWithdraw activity..
 
-                // ....and carry some data by KEY
-                sendInfo.putExtra("opertion",items.get(position).getOperation_Type());
-                sendInfo.putExtra("id",items.get(position).getStudent_ID());
-                sendInfo.putExtra("code",items.get(position).getC_code());
-                sendInfo.putExtra("gpa",items.get(position).getGPA());
-                sendInfo.putExtra("section",items.get(position).getSection());
-                sendInfo.putExtra("number",items.get(position).getNumber());
+                    // ....and carry some data by KEY
+                    sendInfo.putExtra("opertion",items.get(position).getOperation_Type());
+                    sendInfo.putExtra("id",items.get(position).getStudent_ID());
+                    sendInfo.putExtra("code",items.get(position).getC_code());
+                    sendInfo.putExtra("reason",items.get(position).getReason());
+                    sendInfo.putExtra("section",items.get(position).getSection());
+                    sendInfo.putExtra("number",items.get(position).getNumber());
 
-                sendInfo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(sendInfo);
+                    sendInfo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(sendInfo);
+                }else {
+                    Intent sendInfo = new Intent(context, AcademicRequest.class);//go to AcademicRequest activity..
+
+                    // ....and carry some data by KEY
+                    sendInfo.putExtra("opertion", items.get(position).getOperation_Type());
+                    sendInfo.putExtra("id", items.get(position).getStudent_ID());
+                    sendInfo.putExtra("code", items.get(position).getC_code());
+                    sendInfo.putExtra("section", items.get(position).getSection());
+                    sendInfo.putExtra("number", items.get(position).getNumber());
+
+                    sendInfo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(sendInfo);
+                }
 
             }
         });
@@ -67,6 +82,7 @@ public class newrequestAdpter extends RecyclerView.Adapter<newrequestAdpter.cust
 
     @Override
     public int getItemCount() {
+        //get all items
         return items.size();
     }
 

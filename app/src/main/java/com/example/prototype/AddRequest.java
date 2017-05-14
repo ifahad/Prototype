@@ -37,6 +37,7 @@ public class AddRequest extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_request);
+
         course_list= (Spinner) findViewById(R.id.courseID);
         btn_submit= (Button) findViewById(R.id.submitbutton);
         section_input= (EditText) findViewById(R.id.sectionID);
@@ -65,6 +66,9 @@ public class AddRequest extends Activity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(!(section_input.getText().toString().isEmpty())) {
+
                 Retrofit.CreateRetrofitObj();
 
                 final API API = Retrofit.getRetrofitObj()
@@ -83,7 +87,7 @@ public class AddRequest extends Activity {
 
                         if(response.body().getMessage().equals("done")) {
 
-                            Toast.makeText(AddRequest.this,"Request Submitted",Toast.LENGTH_SHORT)
+                            Toast.makeText(AddRequest.this,"Request Submitted",Toast.LENGTH_LONG)
                                     .show();
                             Intent stud_intent = new Intent(getApplicationContext(), StudentPortal.class);
                             startActivity(stud_intent);
@@ -102,6 +106,10 @@ public class AddRequest extends Activity {
                                 .show();
                     }
                 });
+                }else{
+                    Toast.makeText(AddRequest.this,"You must Write Section Like: CA36 ",Toast.LENGTH_SHORT)
+                            .show();
+                }
             }
         });
 
